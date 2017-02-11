@@ -24,6 +24,7 @@ import simpleaudio as sa
 import wave, struct, math
 
 from SaveAudio import save_audio
+from recorder import Recorder
 
 import pandas as pd
 
@@ -66,9 +67,12 @@ def watson_budget(name, day):
 
     
     while running:
-        save_audio() 
+        #save_audio() 
+        recorder = Recorder('resources/1.wav')
+        recorder.record_to_file()
         text = receive_audio('resources/1.wav')
-        print(text)        
+        print(text)
+        print(type(text)) 
         if "close" in text:
             play_audio("Alright then goodbye!")
             running = False
@@ -79,7 +83,9 @@ def watson_budget(name, day):
             play_audio("What else would you like to know?")
         elif "register" in text:
             play_audio("Sure thing, how much money did you spend today?")
-            save_audio()
+            #save_audio()
+            #recorder = Recorder('resources/1.wav')
+            recorder.record_to_file()
             text = receive_audio('resources/1.wav')
             print(text)
             df1.loc[name,day] += 5
@@ -98,6 +104,7 @@ def watson_budget(name, day):
         
 
 #watson_budget("Edward", "Friday")
+
 
 
 

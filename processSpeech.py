@@ -49,6 +49,10 @@ def processSpeech(name):
         name = "Edward"
     elif "Wu" in name:
         name = "Johnny"
+    elif "Deng" in name:
+        name = "Michelle"
+    elif "Liu" in name:
+        name = "Vincent"
     #  Initial greeting
     tts('Hello ' + name + '. \
         What can I do for you today?', 'resources/greeting.wav')
