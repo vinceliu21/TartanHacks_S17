@@ -70,7 +70,7 @@ def processSpeech(name):
 
     if (datetime.datetime.time(datetime.datetime.now()) > datetime.time(4, 20, 0, 0) and
             datetime.datetime.time(datetime.datetime.now()) < datetime.time(4, 20, 59, 0)):
-        tts("ayy lmao", 'resources/420.wav')
+        tts("ay. lmao", 'resources/420.wav')
         audio = AudioFile('resources/420.wav')
         audio.play()
         audio.close()
