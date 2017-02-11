@@ -68,13 +68,6 @@ def processSpeech(name):
     result = stt('request.wav')
     transcript = result['results'][0]['alternatives'][0]['transcript']
 
-    if (datetime.datetime.time(datetime.datetime.now()) > datetime.time(4, 20, 0, 0) and
-            datetime.datetime.time(datetime.datetime.now()) < datetime.time(4, 20, 59, 0)):
-        tts("ay. lmao", 'resources/420.wav')
-        audio = AudioFile('resources/420.wav')
-        audio.play()
-        audio.close()
-
     # Eating Section
     if "eat" in transcript:
 
@@ -92,12 +85,20 @@ def processSpeech(name):
         return processSpeech(name)
 
     elif "time" in transcript:
-        tts("The current time is " +
-            datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y"),
-            'resources/time.wav')
-        audio = AudioFile('resources/time.wav')
-        audio.play()
-        audio.close()
+        if (datetime.datetime.time(datetime.datetime.now()) > datetime.time(4, 20, 0, 0) and
+                datetime.datetime.time(datetime.datetime.now()) < datetime.time(4, 20, 59, 0)):
+            tts("ay. lmao", 'resources/420.wav')
+            audio = AudioFile('resources/420.wav')
+            audio.play()
+            audio.close()
+
+        else:
+            tts("The current time is " +
+                datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y"),
+                'resources/time.wav')
+            audio = AudioFile('resources/time.wav')
+            audio.play()
+            audio.close()
     # Default Case for not getting any proper key words
     else:
         return processSpeech(name)
