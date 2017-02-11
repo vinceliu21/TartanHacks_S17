@@ -81,7 +81,6 @@ def processSpeech(name):
         keyPhrase = 'I want to eat '
         if keyPhrase in transcript:
             yelp_search.searchFood(transcript[len(keyPhrase)::])
-            print("test")
             return processSpeech(name)
         else:
             print('Did not say key phrase')
