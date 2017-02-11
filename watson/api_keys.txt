@@ -1,2 +1,42 @@
 API Key for Alchemy Language
 13664dcfce096de46a48a7173869a25bd140fc9e
+
+
+
+Text to Speech
+
+{ 
+  "url": "https://stream.watsonplatform.net/text-to-speech/api",
+  "username": "573eea08-b036-476e-8701-ba6afe44e12a",
+  "password": "5qir686Ar1sz"
+}
+
+
+Speech to Text
+{
+
+
+  "url": "https://stream.watsonplatform.net/speech-to-text/api",
+  "username": "799f8c1d-67cf-4c0e-b833-76eeab3a90a9",
+  "password": "H3UE0oRRdNdx"
+
+}
+
+
+
+
+All Visual Recognition
+{
+
+
+  "url": "https://gateway-a.watsonplatform.net/visual-recognition/api",
+  "note": "It may take up to 5 minutes for this key to become active",
+  "api_key": "aa3972acdbfb2a4df1cbbab7aaab2686755da530"
+
+
+}
+
+
+
+
+
