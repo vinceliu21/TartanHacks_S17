@@ -8,14 +8,14 @@ import yelp_search
 import datetime
 
 
-def tts(text):
+def tts(text, filename):
     text_to_speech = TextToSpeechV1(
         username='573eea08-b036-476e-8701-ba6afe44e12a',
         password='5qir686Ar1sz',
         x_watson_learning_opt_out=True)
 
     #  Initial greeting
-    with open(join(dirname(__file__), 'resources/greeting.wav'),
+    with open(join(dirname(__file__), filename),
               'wb') as audio_file:
         audio_file.write(
             text_to_speech.synthesize(text,
@@ -47,7 +47,7 @@ def processSpeech(name):
     '''
     #  Initial greeting
     tts('Hello ' + name + '. \
-        What can I do for you today?')
+        What can I do for you today?', 'resources/greeting.wav')
     audio = AudioFile('resources/greeting.wav')
     audio.play()
     audio.close()
@@ -62,7 +62,7 @@ def processSpeech(name):
 
     if (datetime.datetime.time(datetime.datetime.now()) > datetime.time(4, 20, 0, 0) and
             datetime.datetime.time(datetime.datetime.now()) < datetime.time(4, 20, 59, 0)):
-        tts("ayy lmao")
+        tts("ayy lmao", 'resources/420.wav')
         audio = AudioFile('resources/420.wav')
         audio.play()
         audio.close()
@@ -86,7 +86,8 @@ def processSpeech(name):
 
     elif "time" in transcript:
         tts("The current time is " +
-            datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y"))
+            datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y"),
+            'resources/time.wav')
         audio = AudioFile('resources/time.wav')
         audio.play()
         audio.close()
