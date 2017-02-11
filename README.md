@@ -12,7 +12,7 @@ Take a picture of yourself in the beginning, then tailor your profile to *you*.
 Mention “budget” and you can log the amount of money you’ve spent so far in the day.
 
 ## Eat
-Say, “I want to eat _ ” and 4U will search for top-rated restaurants that have the food you want. [test](http://google.com)
+Say, “I want to eat _ ” and 4U will search for top-rated restaurants that have the food you want.
 
 
 ## Libraries Used
