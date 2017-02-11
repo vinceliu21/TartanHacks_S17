@@ -25,7 +25,16 @@ Speech to Text
 
 
 
+All Visual Recognition
+{
 
+
+  "url": "https://gateway-a.watsonplatform.net/visual-recognition/api",
+  "note": "It may take up to 5 minutes for this key to become active",
+  "api_key": "aa3972acdbfb2a4df1cbbab7aaab2686755da530"
+
+
+}
 
 
 
