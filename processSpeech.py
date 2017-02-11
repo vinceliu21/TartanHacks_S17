@@ -58,8 +58,8 @@ def processSpeech(name):
     print('transcribing')
     result = stt('request.wav')
     transcript = result['results'][0]['alternatives'][0]['transcript']
-    
-    if (datetime.datetime.time(datetime.datetime.now()) > datetime.time(4, 20, 0, 0) && datetime.datetime.time(datetime.datetime.now()) < datetime.time(4, 20, 59, 0)):
+
+    if (datetime.datetime.time(datetime.datetime.now()) > datetime.time(4, 20, 0, 0) and datetime.datetime.time(datetime.datetime.now()) < datetime.time(4, 20, 59, 0)):
         tts("ayy lmao")
 
     ###  Eating Section  ###
@@ -83,5 +83,5 @@ def processSpeech(name):
         tts("The current time is " + datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y"))
     ### Default Case for not getting any proper key words  ###
     else:
-        return processSpeech(name) 
+        return processSpeech(name)
 
