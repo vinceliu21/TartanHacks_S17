@@ -7,6 +7,7 @@ from budget_watson import watson_budget
 import yelp_search
 import datetime
 
+
 def tts(text):
     text_to_speech = TextToSpeechV1(
         username='573eea08-b036-476e-8701-ba6afe44e12a',
@@ -59,10 +60,14 @@ def processSpeech(name):
     result = stt('request.wav')
     transcript = result['results'][0]['alternatives'][0]['transcript']
 
-    if (datetime.datetime.time(datetime.datetime.now()) > datetime.time(4, 20, 0, 0) and datetime.datetime.time(datetime.datetime.now()) < datetime.time(4, 20, 59, 0)):
+    if (datetime.datetime.time(datetime.datetime.now()) > datetime.time(4, 20, 0, 0) and
+            datetime.datetime.time(datetime.datetime.now()) < datetime.time(4, 20, 59, 0)):
         tts("ayy lmao")
+        audio = AudioFile('resources/420.wav')
+        audio.play()
+        audio.close()
 
-    ###  Eating Section  ###
+    # Eating Section
     if "eat" in transcript:
 
         keyPhrase = 'I want to eat '
@@ -74,14 +79,17 @@ def processSpeech(name):
             print('Did not say key phrase')
             return processSpeech(name)
 
-    ###  Budget Section  ###
+    # Budget Section
     elif "budget" in transcript:
         watson_budget("Edward", "Friday")
         return processSpeech(name)
 
     elif "time" in transcript:
-        tts("The current time is " + datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y"))
-    ### Default Case for not getting any proper key words  ###
+        tts("The current time is " +
+            datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y"))
+        audio = AudioFile('resources/time.wav')
+        audio.play()
+        audio.close()
+    # Default Case for not getting any proper key words
     else:
         return processSpeech(name)
-
