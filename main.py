@@ -5,4 +5,4 @@ import processSpeech
 
 name = faceTest.run()
 food = processSpeech.processSpeech(name)
-yelp_search.searchFood(food)
+

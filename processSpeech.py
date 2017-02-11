@@ -3,7 +3,8 @@ from recorder import Recorder
 from os.path import join, dirname
 from watson_developer_cloud import TextToSpeechV1
 from watson_developer_cloud import SpeechToTextV1
-
+from budget_watson import watson_budget
+import yelp_search
 
 def tts(text):
     text_to_speech = TextToSpeechV1(
@@ -56,9 +57,25 @@ def processSpeech(name):
     print('transcribing')
     result = stt('request.wav')
     transcript = result['results'][0]['alternatives'][0]['transcript']
-    keyPhrase = 'I want to eat '
-    if keyPhrase in transcript:
-        return transcript[len(keyPhrase)::]
+    
+    ###  Eating Section  ###
+    if "eat" in transcript:
+
+        keyPhrase = 'I want to eat '
+        if keyPhrase in transcript:
+            yelp_search.searchFood(transcript[len(keyPhrase)::])
+            print("test")
+            return processSpeech(name)
+        else:
+            print('Did not say key phrase')
+            return processSpeech(name)
+
+    ###  Budget Section  ###
+    elif "budget" in transcript:
+        watson_budget("Edward", "Friday")
+        return processSpeech(name)
+
+    ### Default Case for not getting any proper key words  ###
     else:
-        print('Did not say key phrase')
-        return
+        return processSpeech(name) 
+
