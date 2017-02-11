@@ -45,6 +45,10 @@ def processSpeech(name):
     @param name  string of name from face recognition
     @return      extracted keyword from speech
     '''
+    if "Cho" in name:
+        name = "Edward"
+    elif "Wu" in name:
+        name = "Johnny"
     #  Initial greeting
     tts('Hello ' + name + '. \
         What can I do for you today?', 'resources/greeting.wav')
