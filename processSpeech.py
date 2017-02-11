@@ -5,6 +5,7 @@ from watson_developer_cloud import TextToSpeechV1
 from watson_developer_cloud import SpeechToTextV1
 from budget_watson import watson_budget
 import yelp_search
+import datetime
 
 def tts(text):
     text_to_speech = TextToSpeechV1(
@@ -58,6 +59,9 @@ def processSpeech(name):
     result = stt('request.wav')
     transcript = result['results'][0]['alternatives'][0]['transcript']
     
+    if (datetime.datetime.time(datetime.datetime.now()) > datetime.time(4, 20, 0, 0) && datetime.datetime.time(datetime.datetime.now()) < datetime.time(4, 20, 59, 0)):
+        tts("ayy lmao")
+
     ###  Eating Section  ###
     if "eat" in transcript:
 
@@ -75,6 +79,8 @@ def processSpeech(name):
         watson_budget("Edward", "Friday")
         return processSpeech(name)
 
+    elif "time" in transcript:
+        tts("The current time is " + datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y"))
     ### Default Case for not getting any proper key words  ###
     else:
         return processSpeech(name) 
