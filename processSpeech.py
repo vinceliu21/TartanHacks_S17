@@ -57,6 +57,8 @@ def processSpeech(name):
     print('transcribing')
     result = stt('request.wav')
     transcript = result['results'][0]['alternatives'][0]['transcript']
+    
+    ###  Eating Section  ###
     if "eat" in transcript:
 
         keyPhrase = 'I want to eat '
@@ -68,9 +70,12 @@ def processSpeech(name):
             print('Did not say key phrase')
             return processSpeech(name)
 
+    ###  Budget Section  ###
     elif "budget" in transcript:
         watson_budget("Edward", "Friday")
         return processSpeech(name)
+
+    ### Default Case for not getting any proper key words  ###
     else:
         return processSpeech(name) 
 
