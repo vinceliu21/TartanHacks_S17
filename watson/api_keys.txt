@@ -3,12 +3,23 @@ API Key for Alchemy Language
 
 
 
-Speech to Text
+Text to Speech
 
 { 
   "url": "https://stream.watsonplatform.net/text-to-speech/api",
   "username": "573eea08-b036-476e-8701-ba6afe44e12a",
   "password": "5qir686Ar1sz"
+}
+
+
+Speech to Text
+{
+
+
+  "url": "https://stream.watsonplatform.net/speech-to-text/api",
+  "username": "799f8c1d-67cf-4c0e-b833-76eeab3a90a9",
+  "password": "H3UE0oRRdNdx"
+
 }
 
 
