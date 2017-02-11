@@ -1,2 +1,22 @@
 API Key for Alchemy Language
 13664dcfce096de46a48a7173869a25bd140fc9e
+
+
+
+Speech to Text
+
+{ 
+  "url": "https://stream.watsonplatform.net/text-to-speech/api",
+  "username": "573eea08-b036-476e-8701-ba6afe44e12a",
+  "password": "5qir686Ar1sz"
+}
+
+
+
+
+
+
+
+
+
+
