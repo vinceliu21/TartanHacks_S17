@@ -25,6 +25,8 @@ import wave, struct, math
 
 from SaveAudio import save_audio
 
+import pandas as pd
+
 
 def play_audio(text):
     text_to_speech = TextToSpeechV1(
@@ -54,10 +56,12 @@ def receive_audio(speech_file):
 
 
 
-def watson_budget():
+def watson_budget(name, day):
 
     running = True
-    
+   
+    df = pd.read_csv('resources/budget.csv')
+    df1 = df.set_index("Name")
     play_audio("What would you like to do with your budget today?")
 
     
@@ -68,8 +72,20 @@ def watson_budget():
         if "close" in text:
             play_audio("Alright then goodbye!")
             running = False
-        elif "day" in text:
+        elif "spend" in text:
             play_audio("Here is your daily summary!")
+            amount = df1.loc[name, day]
+            play_audio('Okay, ' + name + ' You spent ' + str(amount) + ' dollars today.') 
+            play_audio("What else would you like to know?")
+        elif "register" in text:
+            play_audio("Sure thing, how much money did you spend today?")
+            save_audio()
+            text = receive_audio('resources/1.wav')
+            print(text)
+            df1.loc[name,day] += 5
+            df1.to_csv('resources/budget.csv')
+            play_audio("Okay saved it, what else would you like to know.")
+            
         else:
             play_audio("Sorry I did not get that, please repeat your request!")
 
@@ -81,7 +97,7 @@ def watson_budget():
     
         
 
-watson_budget()
+#watson_budget("Edward", "Friday")
 
 
 
